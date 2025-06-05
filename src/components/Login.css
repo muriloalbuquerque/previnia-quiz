@@ -1,41 +1,124 @@
 .login-container {
   min-height: 100vh;
-  background-color: white;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
+}
+
+.login-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../assets/previniawallpaper.jpg') no-repeat center center;
+  background-size: cover;
+  filter: brightness(0.7);
+  z-index: -2;
+}
+
+.login-container::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+  z-index: -1;
+}
+
+.login-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+.login-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  align-items: center;
+  width: 100%;
 }
 
 .login-paper {
-  background-color: white;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
-  padding: 40px;
+  padding: clamp(20px, 5vw, 40px);
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid #673AB7;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   width: 100%;
-  max-width: 400px;
+  margin: auto;
+  position: relative;
+}
+
+.about-card {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: clamp(20px, 5vw, 40px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  margin: auto;
+  position: relative;
 }
 
 .login-title {
-  color: #673AB7;
-  font-size: 2.5rem;
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: bold;
   margin: 0 0 16px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .login-subtitle {
-  color: #666;
-  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
   margin: 0 0 32px 0;
   font-weight: normal;
+  line-height: 1.4;
+}
+
+.about-title {
+  color: #ffffff;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: bold;
+  margin: 0 0 24px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.6;
+  text-align: left;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
 }
 
 .form-group {
@@ -44,44 +127,72 @@
 
 .login-input {
   width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
+  padding: clamp(8px, 2vw, 12px);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.2s;
-  box-sizing: border-box;
+  transition: all 0.2s;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .login-input:focus {
-  border-color: #673AB7;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .login-input::placeholder {
-  color: #999;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .login-button {
   margin-top: 24px;
-  padding: 12px;
-  font-size: 1.1rem;
-  background-color: #673AB7;
+  padding: clamp(10px, 2vw, 12px);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  background: rgba(255, 255, 255, 0.1);
   color: white;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s;
   width: 100%;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .login-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  background-color: #5c34a4;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .login-button:disabled {
-  background-color: #ccc;
+  background: rgba(255, 255, 255, 0.05);
   cursor: not-allowed;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.video-button {
+  background: rgba(255, 0, 0, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: clamp(10px, 2vw, 12px);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.video-button:hover {
+  background: rgba(255, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .login-logo {
@@ -89,6 +200,7 @@
   height: 120px;
   margin-bottom: 24px;
   animation: bounce 2s infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 @keyframes bounce {
@@ -97,5 +209,94 @@
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .login-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .login-content {
+    padding: 20px 0;
+  }
+
+  .login-container {
+    padding: 16px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .login-paper, .about-card {
+    padding: 20px;
+  }
+
+  .login-title {
+    font-size: clamp(1.8rem, 4vw, 2rem);
+  }
+
+  .about-title {
+    font-size: clamp(1.3rem, 3vw, 1.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 10px;
+  }
+
+  .login-paper, .about-card {
+    padding: 16px;
+  }
+
+  .login-title {
+    margin-bottom: 8px;
+  }
+
+  .login-subtitle {
+    margin-bottom: 16px;
+  }
+
+  .login-paper, .about-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+@media (max-height: 600px) {
+  .login-container {
+    padding-top: 10px;
+    padding-bottom: 120px;
+  }
+
+  .login-paper {
+    padding: 16px;
+  }
+
+  .login-title {
+    margin-bottom: 8px;
+  }
+
+  .login-subtitle {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-height: 400px) {
+  .login-container {
+    align-items: flex-start;
+  }
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .login-paper {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .login-input,
+  .login-button {
+    background: rgba(103, 58, 183, 0.1);
   }
 } 

@@ -1,12 +1,39 @@
-# React + Vite
+# PreviniaQuiz 🌊
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O PreviniaQuiz é um jogo educativo desenvolvido para conscientizar sobre a prevenção de enchentes de forma interativa e divertida.
 
-Currently, two official plugins are available:
+## Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O jogo apresenta uma série de perguntas sobre prevenção de enchentes, onde os jogadores podem:
+- Ganhar pontos respondendo corretamente
+- Acumular créditos para usar ajudas
+- Competir no ranking com outros jogadores
+- Aprender sobre medidas preventivas contra enchentes
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React.js
+- Context API para gerenciamento de estado
+- LocalStorage para persistência de dados
+
+## Como Executar
+
+1. Instale as dependências:
+```bash
+npm install
+```
+
+2. Inicie o projeto:
+```bash
+npm start
+```
+
+## Equipe
+
+- Bruno Ribeiro (RM559642)
+- Victor Mazoni (RM560419)
+- Murilo Albuquerque (RM560420)
+
+## Licença
+
+Este projeto é parte de um trabalho acadêmico da FIAP.

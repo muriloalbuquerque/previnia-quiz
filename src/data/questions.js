@@ -1,197 +1,197 @@
 export const questions = [
   {
     id: 1,
-    title: "Qual é a primeira coisa a fazer ao perceber um incêndio?",
+    title: "Qual é a primeira ação a ser tomada ao receber um alerta de enchente?",
     answers: [
-      "Tentar apagar o fogo sozinho",
-      "Acionar o alarme e chamar os bombeiros",
-      "Correr imediatamente",
-      "Procurar seus pertences"
+      "Esperar para ver se a situação piora",
+      "Reunir documentos importantes e kit de emergência",
+      "Ligar para todos os vizinhos",
+      "Tentar salvar todos os móveis"
     ],
     correctAnswerId: 1,
     tipValue: 10,
-    tip: "Pense na segurança coletiva primeiro"
+    tip: "A preparação rápida é essencial para garantir sua segurança"
   },
   {
     id: 2,
-    title: "Durante uma enchente, qual dessas ações deve ser evitada?",
+    title: "Durante uma inundação, qual dessas ações é a mais perigosa?",
     answers: [
-      "Manter-se informado pelo rádio",
-      "Desligar a energia elétrica",
-      "Atravessar áreas alagadas",
-      "Procurar abrigo em local alto"
+      "Desligar a energia elétrica da casa",
+      "Subir para locais mais altos",
+      "Atravessar áreas alagadas a pé",
+      "Ligar para os serviços de emergência"
     ],
     correctAnswerId: 2,
     tipValue: 15,
-    tip: "Água e corrente elétrica são uma combinação perigosa"
+    tip: "Água em movimento pode ser muito mais forte do que parece"
   },
   {
     id: 3,
-    title: "Qual é o melhor local para se abrigar durante um tornado?",
+    title: "Qual item NÃO deve fazer parte de um kit de emergência para enchentes?",
     answers: [
-      "Próximo a janelas",
-      "No porão ou cômodo mais baixo",
-      "No andar mais alto",
-      "Ao ar livre"
+      "Lanternas e pilhas extras",
+      "Alimentos perecíveis",
+      "Documentos em saco plástico",
+      "Água potável"
     ],
     correctAnswerId: 1,
-    tipValue: 20,
-    tip: "Procure o local mais protegido e baixo possível"
+    tipValue: 10,
+    tip: "Pense em itens que possam durar vários dias sem refrigeração"
   },
   {
     id: 4,
-    title: "Como se preparar para um período de seca?",
+    title: "Como se preparar para a temporada de chuvas?",
     answers: [
-      "Armazenar água de forma adequada",
-      "Deixar torneiras pingando",
-      "Regar plantas diariamente",
-      "Lavar calçadas frequentemente"
+      "Limpar calhas e verificar telhados",
+      "Esperar a chuva começar para agir",
+      "Guardar documentos no porão",
+      "Manter eletrônicos no térreo"
     ],
     correctAnswerId: 0,
-    tipValue: 10,
-    tip: "A água é um recurso precioso em períodos de escassez"
+    tipValue: 15,
+    tip: "A prevenção começa antes das chuvas"
   },
   {
     id: 5,
-    title: "O que fazer ao primeiro sinal de um terremoto?",
+    title: "Qual é o principal sinal de alerta para risco de inundação?",
     answers: [
-      "Usar o elevador",
-      "Procurar uma área aberta",
-      "Proteger-se embaixo de uma mesa resistente",
-      "Correr pelas escadas"
+      "Vento forte",
+      "Chuva contínua e subida do nível dos rios",
+      "Calor intenso",
+      "Nuvens escuras"
     ],
-    correctAnswerId: 2,
-    tipValue: 15,
-    tip: "Proteja-se de objetos que possam cair"
+    correctAnswerId: 1,
+    tipValue: 10,
+    tip: "Observe as mudanças nos níveis de água"
   },
   {
     id: 6,
-    title: "Qual item NÃO deve fazer parte de um kit de emergência?",
+    title: "Em caso de enchente, quando é seguro retornar para casa?",
     answers: [
-      "Lanterna",
-      "Alimentos perecíveis",
-      "Água potável",
-      "Kit de primeiros socorros"
+      "Assim que a chuva parar",
+      "Quando as autoridades autorizarem",
+      "Quando os vizinhos voltarem",
+      "24 horas após a chuva"
     ],
     correctAnswerId: 1,
-    tipValue: 10,
-    tip: "Pense em itens que possam durar por vários dias"
+    tipValue: 15,
+    tip: "A segurança deve ser confirmada por profissionais"
   },
   {
     id: 7,
-    title: "Como identificar uma área com risco de deslizamento?",
+    title: "Qual ação ajuda a prevenir alagamentos em áreas urbanas?",
     answers: [
-      "Presença de rachaduras no solo",
-      "Muitas árvores na região",
-      "Asfalto novo",
-      "Presença de animais"
+      "Não jogar lixo em bueiros e manter a drenagem limpa",
+      "Pavimentar todo o quintal",
+      "Canalizar córregos",
+      "Construir próximo a rios"
     ],
     correctAnswerId: 0,
     tipValue: 20,
-    tip: "Observe alterações no terreno"
+    tip: "O lixo pode obstruir o escoamento da água"
   },
   {
     id: 8,
-    title: "Qual a melhor forma de se preparar para um furacão?",
+    title: "O que fazer se a água começar a entrar em sua casa?",
     answers: [
-      "Ignorar os alertas meteorológicos",
-      "Manter-se informado e ter um plano de evacuação",
-      "Abrir todas as janelas",
-      "Permanecer na praia"
+      "Tentar salvar todos os móveis",
+      "Mover-se para um ponto mais alto imediatamente",
+      "Esperar a água baixar",
+      "Nadar até a saída"
     ],
     correctAnswerId: 1,
     tipValue: 15,
-    tip: "A prevenção começa com informação"
+    tip: "Sua vida é mais importante que bens materiais"
   },
   {
     id: 9,
-    title: "O que fazer se ficar preso em um carro durante uma enchente?",
-    answers: [
-      "Tentar dirigir através da água",
-      "Esperar dentro do carro",
-      "Abandonar o veículo imediatamente",
-      "Ligar o ar condicionado"
-    ],
-    correctAnswerId: 2,
-    tipValue: 20,
-    tip: "A água pode subir rapidamente"
-  },
-  {
-    id: 10,
-    title: "Qual é a principal causa de deslizamentos de terra?",
-    answers: [
-      "Chuvas intensas",
-      "Ventos fortes",
-      "Calor excessivo",
-      "Neve"
-    ],
-    correctAnswerId: 0,
-    tipValue: 10,
-    tip: "Pense na saturação do solo"
-  },
-  {
-    id: 11,
-    title: "Como se proteger durante uma tempestade com raios?",
-    answers: [
-      "Procurar abrigo embaixo de árvores",
-      "Ficar em área aberta",
-      "Buscar abrigo em uma construção",
-      "Usar equipamentos elétricos"
-    ],
-    correctAnswerId: 2,
-    tipValue: 15,
-    tip: "Evite ser o ponto mais alto da região"
-  },
-  {
-    id: 12,
-    title: "Qual é o número de emergência dos bombeiros?",
+    title: "Qual é o número de emergência da Defesa Civil?",
     answers: [
       "190",
       "192",
-      "193",
-      "191"
+      "199",
+      "193"
     ],
     correctAnswerId: 2,
     tipValue: 10,
-    tip: "É um dos números mais importantes para emergências"
+    tip: "Este número é específico para situações de desastres naturais"
   },
   {
-    id: 13,
-    title: "Como ajudar pessoas em situação de vulnerabilidade durante desastres?",
+    id: 10,
+    title: "Como proteger documentos importantes durante uma enchente?",
     answers: [
-      "Ignorar a situação",
-      "Auxiliar no acesso a informações e recursos",
-      "Espalhar rumores",
-      "Agir individualmente"
+      "Guardar em sacos plásticos vedados",
+      "Deixar na gaveta",
+      "Colocar embaixo da cama",
+      "Guardar no porão"
+    ],
+    correctAnswerId: 0,
+    tipValue: 10,
+    tip: "A impermeabilização é fundamental"
+  },
+  {
+    id: 11,
+    title: "Qual destes é um sinal de que você deve evacuar a área?",
+    answers: [
+      "Chuva fraca",
+      "Sirenes de alerta ou ordem de evacuação",
+      "Previsão de chuva",
+      "Vento forte"
     ],
     correctAnswerId: 1,
     tipValue: 15,
-    tip: "A solidariedade é fundamental em momentos de crise"
+    tip: "Os sistemas de alerta são instalados para sua segurança"
+  },
+  {
+    id: 12,
+    title: "O que fazer com animais de estimação durante uma enchente?",
+    answers: [
+      "Deixá-los em casa",
+      "Soltá-los na rua",
+      "Incluí-los no plano de evacuação",
+      "Deixar com vizinhos"
+    ],
+    correctAnswerId: 2,
+    tipValue: 15,
+    tip: "Eles também precisam ser protegidos"
+  },
+  {
+    id: 13,
+    title: "Qual equipamento é mais útil durante uma enchente?",
+    answers: [
+      "Guarda-chuva",
+      "Rádio à pilha",
+      "Ventilador",
+      "Televisão"
+    ],
+    correctAnswerId: 1,
+    tipValue: 10,
+    tip: "A informação é crucial em momentos de emergência"
   },
   {
     id: 14,
-    title: "Qual é a melhor maneira de prevenir incêndios florestais?",
+    title: "Como ajudar a comunidade durante uma enchente?",
     answers: [
-      "Fazer fogueiras em áreas secas",
-      "Jogar bitucas de cigarro no chão",
-      "Evitar queimadas e manter a vegetação limpa",
-      "Guardar materiais inflamáveis"
+      "Espalhar rumores",
+      "Ignorar pedidos de ajuda",
+      "Compartilhar informações oficiais e ajudar vizinhos vulneráveis",
+      "Fazer fotos e vídeos"
     ],
     correctAnswerId: 2,
     tipValue: 20,
-    tip: "A prevenção é sempre melhor que o combate"
+    tip: "A solidariedade salva vidas"
   },
   {
     id: 15,
-    title: "O que fazer ao receber um alerta de tsunami?",
+    title: "Qual é a melhor forma de armazenar água para emergências?",
     answers: [
-      "Ir para a praia observar",
-      "Procurar áreas elevadas imediatamente",
-      "Ignorar o alerta",
-      "Esperar para ver o que acontece"
+      "Em garrafas abertas",
+      "Em recipientes limpos e fechados",
+      "Em baldes no quintal",
+      "Em piscinas"
     ],
     correctAnswerId: 1,
-    tipValue: 20,
-    tip: "Cada minuto é precioso em caso de tsunami"
+    tipValue: 10,
+    tip: "A água deve permanecer potável por vários dias"
   }
 ]; 

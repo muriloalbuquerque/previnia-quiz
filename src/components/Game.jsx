@@ -12,7 +12,9 @@ const Game = () => {
     applyHelp,
     currentQuestionIndex,
     shuffledQuestions,
-    usedTips
+    usedTips,
+    user,
+    setUser
   } = useGame();
   const navigate = useNavigate();
   const [showFeedback, setShowFeedback] = useState(false);
