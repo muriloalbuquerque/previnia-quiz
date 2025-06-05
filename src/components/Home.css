@@ -1,21 +1,48 @@
 .home-container {
-  min-height: 100vh;
-  background-color: white;
+  height: 100%;
+  position: relative;
   padding: 20px;
   display: flex;
   justify-content: center;
 }
 
+.home-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../assets/previniawallpaper.jpg') no-repeat center center;
+  background-size: cover;
+  filter: brightness(0.7);
+  z-index: -2;
+}
+
+.home-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+  z-index: -1;
+}
+
 .home-content {
   width: 100%;
   max-width: 1200px;
+  position: relative;
+  z-index: 1;
 }
 
 .welcome-text {
-  color: #4CAF50;
-  font-size: 2rem;
+  color: #ffffff;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   margin: 0 0 32px 0;
   text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .home-grid {
@@ -28,6 +55,23 @@
   .home-grid {
     grid-template-columns: 1fr;
   }
+
+  .home-container {
+    padding: 16px;
+    padding-bottom: 120px; /* Espaço para o footer */
+  }
+
+  .score-card, .tips-card, .ranking-card {
+    padding: 20px;
+  }
+
+  .tips-list, .ranking-list {
+    gap: 12px;
+  }
+
+  .tip-item, .ranking-item {
+    padding: 12px;
+  }
 }
 
 .main-section {
@@ -36,65 +80,59 @@
   gap: 24px;
 }
 
-.score-card {
-  background-color: white;
+.score-card, .tips-card, .ranking-card {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
-  padding: 32px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid #4CAF50;
+  padding: clamp(20px, 4vw, 32px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.score-title {
-  color: #4CAF50;
-  font-size: 1.5rem;
-  margin: 0 0 16px 0;
+.score-title, .tips-title, .ranking-title {
+  color: #ffffff;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin: 0 0 24px 0;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .score-value {
-  color: #4CAF50;
-  font-size: 3rem;
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: bold;
   margin-bottom: 8px;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .credits-text {
-  color: #666;
-  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   margin-bottom: 24px;
+  text-align: center;
 }
 
 .play-button {
-  background-color: #4CAF50;
+  background: rgba(255, 255, 255, 0.1);
   color: white;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  padding: 12px 32px;
-  font-size: 1.2rem;
+  padding: clamp(10px, 2vw, 12px);
+  font-size: clamp(1rem, 2vw, 1.2rem);
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .play-button:hover {
-  background-color: #388e3c;
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
-}
-
-.tips-card {
-  background-color: white;
-  border-radius: 16px;
-  padding: 32px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid #4CAF50;
-}
-
-.tips-title {
-  color: #4CAF50;
-  font-size: 1.5rem;
-  margin: 0 0 24px 0;
-  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .tips-list {
@@ -107,36 +145,32 @@
 }
 
 .tip-item {
-  padding: 0;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s;
+}
+
+.tip-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .tip-primary {
-  color: #333;
-  font-size: 1.2rem;
+  color: #ffffff;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   margin: 0 0 8px 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .tip-secondary {
-  color: #666;
-  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 2vw, 1rem);
   margin: 0;
   line-height: 1.5;
-}
-
-.ranking-card {
-  background-color: white;
-  border-radius: 16px;
-  padding: 32px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid #4CAF50;
-  height: fit-content;
-}
-
-.ranking-title {
-  color: #4CAF50;
-  font-size: 1.5rem;
-  margin: 0 0 24px 0;
-  text-align: center;
 }
 
 .ranking-list {
@@ -151,22 +185,35 @@
 .ranking-item {
   padding: 16px;
   border-radius: 8px;
-  background-color: #f5f5f5;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: transform 0.2s;
 }
 
 .ranking-item:hover {
   transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .ranking-name {
-  color: #333;
-  font-size: 1.1rem;
+  color: #ffffff;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
   margin: 0 0 4px 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .ranking-score {
-  color: #666;
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
   margin: 0;
+}
+
+/* Fallback para navegadores que não suportam backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+  .score-card, .tips-card, .ranking-card,
+  .tip-item, .ranking-item {
+    background: rgba(0, 0, 0, 0.7);
+  }
 } 

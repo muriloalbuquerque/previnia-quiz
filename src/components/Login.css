@@ -1,41 +1,73 @@
 .login-container {
-  min-height: 100vh;
-  background-color: white;
-  padding: 20px;
+  height: 100%;
+  position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../assets/previniawallpaper.jpg') no-repeat center center;
+  background-size: cover;
+  filter: brightness(0.7);
+  z-index: -2;
+}
+
+.login-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+  z-index: -1;
 }
 
 .login-paper {
-  background-color: white;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 16px;
-  padding: 40px;
+  padding: clamp(20px, 5vw, 40px);
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid #673AB7;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   width: 100%;
   max-width: 400px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .login-title {
-  color: #673AB7;
-  font-size: 2.5rem;
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 2.5rem);
   font-weight: bold;
   margin: 0 0 16px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .login-subtitle {
-  color: #666;
-  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
   margin: 0 0 32px 0;
   font-weight: normal;
+  line-height: 1.4;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
 }
 
 .form-group {
@@ -44,44 +76,52 @@
 
 .login-input {
   width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border: 1px solid #ddd;
+  padding: clamp(8px, 2vw, 12px);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.2s;
-  box-sizing: border-box;
+  transition: all 0.2s;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .login-input:focus {
-  border-color: #673AB7;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .login-input::placeholder {
-  color: #999;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .login-button {
   margin-top: 24px;
-  padding: 12px;
-  font-size: 1.1rem;
-  background-color: #673AB7;
+  padding: clamp(10px, 2vw, 12px);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  background: rgba(255, 255, 255, 0.1);
   color: white;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s;
   width: 100%;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .login-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  background-color: #5c34a4;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .login-button:disabled {
-  background-color: #ccc;
+  background: rgba(255, 255, 255, 0.05);
   cursor: not-allowed;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .login-logo {
@@ -89,6 +129,7 @@
   height: 120px;
   margin-bottom: 24px;
   animation: bounce 2s infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 @keyframes bounce {
@@ -97,5 +138,54 @@
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 16px;
+  }
+
+  .login-paper {
+    padding: 20px;
+  }
+}
+
+@media (max-height: 600px) {
+  .login-container {
+    padding-top: 10px;
+    padding-bottom: 120px; /* Espaço para o footer */
+  }
+
+  .login-paper {
+    padding: 16px;
+  }
+
+  .login-title {
+    margin-bottom: 8px;
+  }
+
+  .login-subtitle {
+    margin-bottom: 16px;
+  }
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-height: 400px) {
+  .login-container {
+    align-items: flex-start;
+  }
+}
+
+/* Fallback para navegadores que não suportam backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .login-paper {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .login-input,
+  .login-button {
+    background: rgba(103, 58, 183, 0.1);
   }
 } 
