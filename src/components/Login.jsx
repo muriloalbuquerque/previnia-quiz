@@ -73,36 +73,65 @@ const Login = () => {
     }
   };
 
+  const handleWatchVideo = () => {
+    window.open('https://youtu.be/your-video-id', '_blank');
+  };
+
   return (
     <div className="login-container">
-      <div className="login-paper">
-        <h1 className="login-title">PreviniaQuiz</h1>
-        <h2 className="login-subtitle">
-          Aprenda sobre prevenção de desastres de forma divertida!
-        </h2>
-        <form onSubmit={handleSubmit} className="login-form">
-          <div className="form-group">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Digite seu nome"
-              autoComplete="name"
-              autoFocus
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="login-input"
-            />
+      <div className="login-content">
+        <div className="login-grid">
+          <div className="login-paper">
+            <h1 className="login-title">PreviniaQuiz</h1>
+            <h2 className="login-subtitle">
+              Aprenda sobre prevenção de desastres de forma divertida!
+            </h2>
+            <form onSubmit={handleSubmit} className="login-form">
+              <div className="form-group">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Digite seu nome"
+                  autoComplete="name"
+                  autoFocus
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  className="login-input"
+                />
+              </div>
+              <button
+                type="submit"
+                className="login-button"
+                disabled={!name}
+              >
+                Entrar
+              </button>
+            </form>
           </div>
-          <button
-            type="submit"
-            className="login-button"
-            disabled={!name}
-          >
-            Entrar
-          </button>
-        </form>
+
+          <div className="about-card">
+            <h2 className="about-title">Sobre Nós</h2>
+            <div className="about-content">
+              <p className="about-text">
+                O PreviniaQuiz é um projeto desenvolvido por alunos da FIAP com o objetivo de conscientizar sobre a prevenção de desastres naturais de forma interativa e educativa.
+              </p>
+              <p className="about-text">
+                Nossa equipe: <br />
+                - Bruno Ribeiro (RM559642) <br />
+                - Victor Mazon (RM560419)<br />
+                - Murilo Albuquerque (RM560420)<br />
+              </p>
+              <button
+                onClick={handleWatchVideo}
+                className="video-button"
+              >
+                Assista ao Vídeo Explicativo
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
