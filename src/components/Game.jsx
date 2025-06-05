@@ -30,17 +30,6 @@ const Game = () => {
     setShowCorrect(false);
   }, [currentQuestion]);
 
-  useEffect(() => {
-    if (user) {
-      const updatedUser = {
-        ...user,
-        credits
-      };
-      setUser(updatedUser);
-      localStorage.setItem('user', JSON.stringify(updatedUser));
-    }
-  }, [credits, user, setUser]);
-
   if (!currentQuestion) {
     navigate('/home');
     return null;

@@ -15,7 +15,14 @@ export const GameProvider = ({ children }) => {
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      const parsedUser = JSON.parse(storedUser);
+      setCredits(parsedUser.credits || 0);
+      setScore(parsedUser.score || 0);
+    }
+
+    const storedLeaderboard = localStorage.getItem('leaderboard');
+    if (storedLeaderboard) {
+      setLeaderboard(JSON.parse(storedLeaderboard));
     }
   }, []);
 
@@ -27,35 +34,36 @@ export const GameProvider = ({ children }) => {
   const startGame = () => {
     shuffleQuestions();
     setCurrentQuestionIndex(0);
-    setScore(0);
-    setCredits(0);
     setUsedTips([]);
+    setScore(user?.score || 0);
+    setCredits(user?.credits || 0);
   };
 
   const answerQuestion = (answerId) => {
     if (currentQuestionIndex >= 0 && currentQuestionIndex < shuffledQuestions.length) {
       const question = shuffledQuestions[currentQuestionIndex];
       const isCorrect = answerId === question.correctAnswerId;
-      
-      if (isCorrect) {
-        setScore(prev => prev + 10);
-        setCredits(prev => prev + 5);
-      }
 
-      if (currentQuestionIndex < shuffledQuestions.length - 1) {
-        setCurrentQuestionIndex(prev => prev + 1);
+      const updatedScore = score + (isCorrect ? 10 : 0);
+      const updatedCredits = credits + (isCorrect ? 5 : 0);
+
+      setScore(updatedScore);
+      setCredits(updatedCredits);
+
+      const updatedUser = {
+        ...user,
+        score: updatedScore,
+        credits: updatedCredits
+      };
+
+      const isLastQuestion = currentQuestionIndex === shuffledQuestions.length - 1;
+
+      if (isLastQuestion) {
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+        setUser(updatedUser);
+        updateLeaderboard(updatedUser);
       } else {
-        if (user) {
-          const updatedUser = {
-            ...user,
-            score: Math.max(user.score, score + (isCorrect ? 10 : 0)),
-            credits: user.credits + credits + (isCorrect ? 5 : 0),
-            usedTips: []
-          };
-          setUser(updatedUser);
-          localStorage.setItem('user', JSON.stringify(updatedUser));
-          updateLeaderboard(updatedUser);
-        }
+        setCurrentQuestionIndex(prev => prev + 1);
       }
     }
   };
@@ -68,8 +76,17 @@ export const GameProvider = ({ children }) => {
     };
 
     if (credits >= costs[type] && !usedTips.includes(questionId)) {
-      setCredits(prev => prev - costs[type]);
+      const updatedCredits = credits - costs[type];
+      setCredits(updatedCredits);
       setUsedTips(prev => [...prev, questionId]);
+
+      const updatedUser = {
+        ...user,
+        credits: updatedCredits
+      };
+      setUser(updatedUser);
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+
       return true;
     }
     return false;
@@ -77,8 +94,19 @@ export const GameProvider = ({ children }) => {
 
   const updateLeaderboard = (updatedUser) => {
     setLeaderboard(prev => {
-      const newLeaderboard = [...prev.filter(u => u.email !== updatedUser.email), updatedUser];
-      return newLeaderboard.sort((a, b) => b.score - a.score).slice(0, 10);
+      const filtered = prev.filter(u => u.name !== updatedUser.name);
+
+      const newLeaderboard = [...filtered, {
+        name: updatedUser.name,
+        score: updatedUser.score
+      }];
+
+      const sorted = newLeaderboard
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 10);
+
+      localStorage.setItem('leaderboard', JSON.stringify(sorted));
+      return sorted;
     });
   };
 
@@ -107,4 +135,4 @@ export const useGame = () => {
     throw new Error('useGame must be used within a GameProvider');
   }
   return context;
-}; 
+};
