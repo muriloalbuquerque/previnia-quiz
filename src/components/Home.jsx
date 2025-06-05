@@ -77,20 +77,20 @@ const Home = () => {
 
             <div className="tips-card">
               <h2 className="tips-title">
-                Dicas sobre Prevenção de Desastres
+                Dicas sobre Prevenção de Enchentes
               </h2>
               <ul className="tips-list">
                 <li className="tip-item">
-                  <h3 className="tip-primary">Mantenha um kit de emergência</h3>
-                  <p className="tip-secondary">Água, alimentos não perecíveis, lanternas e rádio são essenciais</p>
+                  <h3 className="tip-primary">Monitore os níveis de água</h3>
+                  <p className="tip-secondary">Acompanhe alertas meteorológicos e fique atento aos níveis dos rios</p>
                 </li>
                 <li className="tip-item">
-                  <h3 className="tip-primary">Conheça as rotas de fuga</h3>
-                  <p className="tip-secondary">Identifique saídas de emergência e pontos de encontro</p>
+                  <h3 className="tip-primary">Prepare seu kit de emergência</h3>
+                  <p className="tip-secondary">Água potável, alimentos não perecíveis, documentos em saco plástico e rádio à pilha</p>
                 </li>
                 <li className="tip-item">
-                  <h3 className="tip-primary">Mantenha-se informado</h3>
-                  <p className="tip-secondary">Acompanhe alertas meteorológicos e orientações das autoridades</p>
+                  <h3 className="tip-primary">Conheça rotas seguras</h3>
+                  <p className="tip-secondary">Identifique pontos altos e rotas de evacuação em sua região</p>
                 </li>
               </ul>
             </div>

@@ -84,7 +84,7 @@ const Login = () => {
           <div className="login-paper">
             <h1 className="login-title">PreviniaQuiz</h1>
             <h2 className="login-subtitle">
-              Aprenda sobre prevenção de desastres de forma divertida!
+              Aprenda sobre prevenção de enchentes de forma divertida!
             </h2>
             <form onSubmit={handleSubmit} className="login-form">
               <div className="form-group">
@@ -115,7 +115,7 @@ const Login = () => {
             <h2 className="about-title">Sobre Nós</h2>
             <div className="about-content">
               <p className="about-text">
-                O PreviniaQuiz é um projeto desenvolvido por alunos da FIAP com o objetivo de conscientizar sobre a prevenção de desastres naturais de forma interativa e educativa.
+                O PreviniaQuiz é um projeto desenvolvido por alunos da FIAP com o objetivo de conscientizar sobre a prevenção de enchentes e inundações de forma interativa e educativa.
               </p>
               <p className="about-text">
                 Nossa equipe: <br />
