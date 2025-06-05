@@ -1,15 +1,15 @@
 .game-container {
-  height: 100%;
+  min-height: 100%;
   position: relative;
   padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .game-container::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -22,7 +22,7 @@
 
 .game-container::after {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -34,12 +34,11 @@
 .game-content {
   width: 100%;
   max-width: 800px;
-  height: calc(100vh - 140px); /* Ajustado para o footer */
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  position: relative;
-  z-index: 1;
 }
 
 .game-header {
@@ -344,7 +343,6 @@
 @media (max-width: 768px) {
   .game-container {
     padding: 16px;
-    padding-bottom: 120px; /* Espaço para o footer */
   }
 
   .help-buttons {
@@ -354,6 +352,63 @@
 
   .answer-button {
     padding: 12px;
+  }
+
+  .game-header {
+    padding: 8px;
+  }
+
+  .game-scores {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .game-score {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+
+  .question-title {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+  }
+
+  .question-text {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+  .game-container {
+    padding: 10px;
+  }
+
+  .game-header {
+    padding: 6px;
+  }
+
+  .help-title {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    margin-bottom: 12px;
+  }
+
+  .help-button {
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    padding: 6px;
+  }
+
+  .feedback-content {
+    padding: 20px;
+  }
+
+  .feedback-icon {
+    font-size: 36px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .feedback-text {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
   }
 }
 

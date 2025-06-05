@@ -94,7 +94,8 @@ export const GameProvider = ({ children }) => {
     applyHelp,
     shuffledQuestions,
     currentQuestionIndex,
-    leaderboard
+    leaderboard,
+    setLeaderboard
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

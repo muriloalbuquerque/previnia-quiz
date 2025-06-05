@@ -12,7 +12,9 @@ const Game = () => {
     applyHelp,
     currentQuestionIndex,
     shuffledQuestions,
-    usedTips
+    usedTips,
+    user,
+    setUser
   } = useGame();
   const navigate = useNavigate();
   const [showFeedback, setShowFeedback] = useState(false);
@@ -27,6 +29,18 @@ const Game = () => {
     setShowTip(false);
     setShowCorrect(false);
   }, [currentQuestion]);
+
+  // Salva os créditos no localStorage quando eles mudarem
+  useEffect(() => {
+    if (user) {
+      const updatedUser = {
+        ...user,
+        credits
+      };
+      setUser(updatedUser);
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+    }
+  }, [credits, user, setUser]);
 
   if (!currentQuestion) {
     navigate('/home');

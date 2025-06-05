@@ -1,8 +1,8 @@
 .footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
-  height: 110px;
+  height: 60px;
+  position: relative;
+  margin-top: auto;
 }
 
 .waves {
@@ -40,5 +40,15 @@
   }
   100% {
     transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    height: 90px;
+  }
+  
+  .waves {
+    height: 50px;
   }
 }

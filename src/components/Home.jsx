@@ -1,23 +1,68 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useGame } from '../context/GameContext.jsx';
 import './Home.css';
 
 const Home = () => {
-  const { user, leaderboard, startGame } = useGame();
+  const { user, leaderboard, startGame, setLeaderboard } = useGame();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Carrega o ranking do localStorage
+    const savedLeaderboard = localStorage.getItem('leaderboard');
+    if (savedLeaderboard) {
+      const parsedLeaderboard = JSON.parse(savedLeaderboard);
+      
+      // Verifica se o usuário atual já está no ranking
+      const currentUserInLeaderboard = parsedLeaderboard.some(
+        player => player.name === user?.name
+      );
+
+      // Se o usuário atual não estiver no ranking e tiver pontuação, adiciona-o
+      if (!currentUserInLeaderboard && user?.score > 0) {
+        parsedLeaderboard.push({
+          name: user.name,
+          score: user.score
+        });
+        // Reordena o ranking
+        parsedLeaderboard.sort((a, b) => b.score - a.score);
+        // Atualiza o localStorage
+        localStorage.setItem('leaderboard', JSON.stringify(parsedLeaderboard));
+      }
+
+      // Atualiza o estado do ranking no contexto
+      setLeaderboard(parsedLeaderboard);
+    }
+  }, [user, setLeaderboard]);
 
   const handleStartGame = () => {
     startGame();
     navigate('/game');
   };
 
+  const handleLogout = () => {
+    // Limpa o localStorage
+    localStorage.clear();
+    // Limpa o sessionStorage
+    sessionStorage.clear();
+    // Força um reload da página para limpar o estado da aplicação
+    window.location.reload();
+  };
+
   return (
     <div className="home-container">
       <div className="home-content">
-        <h1 className="welcome-text">
-          Bem-vindo, {user?.name}!
-        </h1>
+        <div className="header-container">
+          <h1 className="welcome-text">
+            Bem-vindo, {user?.name}!
+          </h1>
+          <button 
+            onClick={handleLogout}
+            className="logout-button"
+          >
+            Sair
+          </button>
+        </div>
 
         <div className="home-grid">
           <div className="main-section">
