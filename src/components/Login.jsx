@@ -120,7 +120,7 @@ const Login = () => {
               <p className="about-text">
                 Nossa equipe: <br />
                 - Bruno Ribeiro (RM559642) <br />
-                - Victor Mazon (RM560419)<br />
+                - Victor Mazoni (RM560419)<br />
                 - Murilo Albuquerque (RM560420)<br />
               </p>
               <button
