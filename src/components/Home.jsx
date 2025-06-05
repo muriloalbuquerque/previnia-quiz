@@ -8,29 +8,23 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Carrega o ranking do localStorage
     const savedLeaderboard = localStorage.getItem('leaderboard');
     if (savedLeaderboard) {
       const parsedLeaderboard = JSON.parse(savedLeaderboard);
       
-      // Verifica se o usuário atual já está no ranking
       const currentUserInLeaderboard = parsedLeaderboard.some(
         player => player.name === user?.name
       );
 
-      // Se o usuário atual não estiver no ranking e tiver pontuação, adiciona-o
       if (!currentUserInLeaderboard && user?.score > 0) {
         parsedLeaderboard.push({
           name: user.name,
           score: user.score
         });
-        // Reordena o ranking
         parsedLeaderboard.sort((a, b) => b.score - a.score);
-        // Atualiza o localStorage
         localStorage.setItem('leaderboard', JSON.stringify(parsedLeaderboard));
       }
 
-      // Atualiza o estado do ranking no contexto
       setLeaderboard(parsedLeaderboard);
     }
   }, [user, setLeaderboard]);
@@ -41,11 +35,8 @@ const Home = () => {
   };
 
   const handleLogout = () => {
-    // Limpa o localStorage
     localStorage.clear();
-    // Limpa o sessionStorage
     sessionStorage.clear();
-    // Força um reload da página para limpar o estado da aplicação
     window.location.reload();
   };
 

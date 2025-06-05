@@ -30,7 +30,6 @@ const Game = () => {
     setShowCorrect(false);
   }, [currentQuestion]);
 
-  // Salva os créditos no localStorage quando eles mudarem
   useEffect(() => {
     if (user) {
       const updatedUser = {

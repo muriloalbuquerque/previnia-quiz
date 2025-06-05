@@ -9,31 +9,26 @@ import PrivateRoute from './components/PrivateRoute.jsx';
 import './App.css';
 
 const Root = () => {
-  // Verifica se existem dados válidos no localStorage
   const storedUser = localStorage.getItem('user');
   const storedLeaderboard = localStorage.getItem('leaderboard');
 
   if (storedUser && storedLeaderboard) {
     try {
       const parsedUser = JSON.parse(storedUser);
-      JSON.parse(storedLeaderboard); // Valida se é um JSON válido
+      JSON.parse(storedLeaderboard);
 
-      // Verifica se o usuário tem todos os campos necessários
       if (parsedUser.name && 
           typeof parsedUser.score === 'number' && 
           typeof parsedUser.credits === 'number' && 
           Array.isArray(parsedUser.usedTips)) {
-        // Se os dados são válidos, redireciona para home
         return <Navigate to="/home" replace />;
       }
     } catch (error) {
-      // Se houver erro no parse, limpa o storage
       localStorage.clear();
       sessionStorage.clear();
     }
   }
 
-  // Se não houver dados válidos, redireciona para login
   return <Navigate to="/login" replace />;
 };
 

@@ -9,27 +9,23 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Verifica se já existem dados válidos no localStorage
     const storedUser = localStorage.getItem('user');
     const storedLeaderboard = localStorage.getItem('leaderboard');
 
     if (storedUser && storedLeaderboard) {
       try {
         const parsedUser = JSON.parse(storedUser);
-        JSON.parse(storedLeaderboard); // Valida se é um JSON válido
+        JSON.parse(storedLeaderboard);
 
-        // Verifica se o usuário tem todos os campos necessários
         if (parsedUser.name && 
             typeof parsedUser.score === 'number' && 
             typeof parsedUser.credits === 'number' && 
             Array.isArray(parsedUser.usedTips)) {
-          // Se os dados são válidos, redireciona para home
           setUser(parsedUser);
           navigate('/home');
           return;
         }
       } catch (error) {
-        // Se houver erro no parse, limpa o storage
         localStorage.clear();
         sessionStorage.clear();
       }
@@ -37,7 +33,6 @@ const Login = () => {
   }, [navigate, setUser]);
 
   const generateRandomScore = () => {
-    // Gera uma pontuação aleatória entre 50 e 300
     return Math.floor(Math.random() * (300 - 50 + 1)) + 50;
   };
 
@@ -53,7 +48,6 @@ const Login = () => {
       { name: 'Rafael Martins', score: generateRandomScore() }
     ];
 
-    // Ordena o ranking por pontuação em ordem decrescente
     return defaultUsers.sort((a, b) => b.score - a.score);
   };
 
@@ -68,10 +62,8 @@ const Login = () => {
       };
       setUser(newUser);
       
-      // Salva o usuário no localStorage
       localStorage.setItem('user', JSON.stringify(newUser));
       
-      // Verifica se já existe um ranking, se não, cria um novo
       if (!localStorage.getItem('leaderboard')) {
         const initialRanking = createInitialRanking();
         localStorage.setItem('leaderboard', JSON.stringify(initialRanking));

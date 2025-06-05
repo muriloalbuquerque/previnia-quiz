@@ -141,7 +141,6 @@
   }
 }
 
-/* Media Queries */
 @media (max-width: 480px) {
   .login-container {
     padding: 16px;
@@ -155,7 +154,7 @@
 @media (max-height: 600px) {
   .login-container {
     padding-top: 10px;
-    padding-bottom: 120px; /* Espaço para o footer */
+    padding-bottom: 120px;
   }
 
   .login-paper {
@@ -171,14 +170,12 @@
   }
 }
 
-/* Ajuste para telas muito pequenas */
 @media (max-height: 400px) {
   .login-container {
     align-items: flex-start;
   }
 }
 
-/* Fallback para navegadores que não suportam backdrop-filter */
 @supports not (backdrop-filter: blur(10px)) {
   .login-paper {
     background: rgba(255, 255, 255, 0.9);
