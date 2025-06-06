@@ -74,7 +74,7 @@ const Login = () => {
   };
 
   const handleWatchVideo = () => {
-    window.open('https://youtu.be/your-video-id', '_blank');
+    window.open('https://www.youtube.com/watch?v=rt_3c21K9SA', '_blank');
   };
 
   return (
